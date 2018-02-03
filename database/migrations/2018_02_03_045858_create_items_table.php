@@ -15,10 +15,10 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('item_type');
+            $table->unsignedInteger('itinerary_id')->index();
             $table->string('item_name');
             $table->text('notes');
-            $table->integer('price');
+            $table->integer('price', 6, 2);
             $table->time('time');
             $table->integer('day_number');
             $table->softDeletes();

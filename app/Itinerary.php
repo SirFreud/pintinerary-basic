@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Item;
+use App\{ Item, User };
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -15,6 +15,7 @@ class Itinerary extends Model
         return $this->hasMany(Item::class);
     }
     
+
      /**
     * Get the route key for the model.
     *
