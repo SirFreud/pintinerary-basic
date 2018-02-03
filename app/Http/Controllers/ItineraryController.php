@@ -24,7 +24,7 @@ class ItineraryController extends Controller
      */
     public function create()
     {
-        return view('itinerary.create')
+        return view('itinerary.create');
     }
 
     /**

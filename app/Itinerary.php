@@ -14,7 +14,7 @@ class Itinerary extends Model
     {
         return $this->hasMany(Item::class);
     }
-
+    
      /**
     * Get the route key for the model.
     *
