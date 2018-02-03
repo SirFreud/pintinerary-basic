@@ -20,6 +20,7 @@ class CreateItinerariesTable extends Migration
             $table->string('slug')->unique();
             $table->enum('category', ['backpacker', 'couple', 'family']);
             $table->enum('region', ['Asia', 'North America', 'South America', 'Europe', 'Africa', 'Middle East', 'Australia', 'Other']);
+            $table->integer('total_days');
             $table->text('overview');
             $table->decimal('price', 4, 2);
             $table->softDeletes();
