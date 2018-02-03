@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::group(['prefix' => '/itinerary'], function () {
     Route::get('/create', 'ItineraryController@create');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
