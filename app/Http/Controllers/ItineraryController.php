@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Itinerary;
 use Illuminate\Http\Request;
+use App\Forms\NewItineraryForm;
+use Kris\LaravelFormBuilder\FormBuilder;
 
 class ItineraryController extends Controller
 {
@@ -22,9 +24,13 @@ class ItineraryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(FormBuilder $formBuilder)
     {
-        return view('itinerary.create');
+        $form = $formBuilder->create(NewItineraryForm::class, [
+            'method' => 'POST',
+            'url' => route('itinerary.create')
+        ]);
+        return view('itinerary.create', compact('form'));
     }
 
     /**
@@ -33,9 +39,12 @@ class ItineraryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FormBuilder $formBuilder)
     {
-        //
+        $form = $formBuilder->create(NewItineraryForm::class);
+        if (! $form->isValid()) {
+            return redirect()->back()->withErrors($form->getErrors())->withInput();
+        }
     }
 
     /**
